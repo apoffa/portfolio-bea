@@ -1524,3 +1524,13 @@ button {
 .works-grid .tile:hover .tile-front img {
   transform: none;
 }
+
+/* ============================================================
+   FIX · padding orizzontale mancante in "Chi sono"
+   (.section usava lo shorthand padding che azzerava i gutter
+    della .container sullo stesso elemento)
+   ============================================================ */
+.container.section {
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
