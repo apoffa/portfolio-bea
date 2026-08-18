@@ -1490,3 +1490,37 @@ button {
 .tile:active .tile-inner {
   transform: rotateY(180deg);
 }
+
+/* ============================================================
+   V2 · FIX FLIP MOBILE (iOS Safari) — backface stabile
+   Il primo flip mostrava il retro specchiato della front:
+   causa tipica = overflow su elementi backface + z-fighting.
+   ============================================================ */
+.tile {
+  -webkit-perspective: 1600px;
+}
+
+.tile-inner {
+  -webkit-transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.works-grid .tile-face {
+  overflow: visible;
+}
+
+.works-grid .tile-front {
+  z-index: 1;
+  transform: rotateY(0deg) translateZ(1px);
+}
+
+.works-grid .tile-back {
+  z-index: 2;
+  transform: rotateY(180deg) translateZ(1px);
+}
+
+/* senza overflow:hidden annulliamo lo zoom dell'immagine in hover,
+   così non sborda oltre la card */
+.works-grid .tile:hover .tile-front img {
+  transform: none;
+}
