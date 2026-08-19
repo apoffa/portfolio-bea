@@ -1286,10 +1286,14 @@ button {
 }
 
 .hero-title {
-  font-size: clamp(2.7rem, 8vw, 6.9rem);
+  font-size: clamp(2rem, 8vw, 6.9rem);
   font-weight: 780;
   letter-spacing: -0.05em;
   line-height: 0.96;
+}
+
+.proj-title {
+  font-size: clamp(2.4rem, 5.5vw, 4.6rem);
 }
 
 .hero .lead {
@@ -1533,4 +1537,144 @@ button {
 .container.section {
   padding-left: var(--gutter);
   padding-right: var(--gutter);
+}
+
+/* ============================================================
+   V2 · CORREZIONI N1 — brand blu, nav/lang, hero, pagine, footer
+   ============================================================ */
+:root {
+  --blue: #2458D4;
+  --violet: #2458D4; /* riallineo l'accento principale al blu richiesto */
+}
+
+.brand-blue {
+  color: var(--blue);
+}
+
+.hero-blue {
+  color: var(--blue);
+}
+
+/* switch lingua */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px;
+  border-radius: 999px;
+  background: rgba(27, 23, 33, 0.055);
+}
+
+.lang-switch button {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 5px 10px;
+  border-radius: 999px;
+  color: var(--ink-mute);
+  transition: color 0.25s, background-color 0.25s;
+}
+
+.lang-switch button.active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* footer: "Let's connect" + contatti */
+.footer-cta-dot {
+  color: var(--blue);
+}
+
+.footer-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 28px;
+  margin-top: 30px;
+}
+
+.footer-contacts a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 4px;
+  transition: color 0.3s var(--ease);
+}
+
+.footer-contacts a:hover {
+  color: var(--blue);
+}
+
+/* pagina progetto: titolo + meta in alto a destra, senza foto/subtitle/side */
+.proj-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.proj-top-title {
+  flex: 1 1 360px;
+  min-width: 0;
+}
+
+.proj-meta-top {
+  display: flex;
+  gap: 36px;
+  padding-top: 10px;
+}
+
+.meta-top-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.meta-top-item .k {
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+.meta-top-item .v {
+  font-size: 0.98rem;
+  font-weight: 620;
+  margin-top: 4px;
+}
+
+.proj .prose {
+  max-width: 800px;
+}
+
+/* footer: rimuovo la mail gigante residua */
+.footer-email {
+  display: none;
+}
+
+@media (max-width: 560px) {
+  .proj-top {
+    flex-direction: column;
+    gap: 22px;
+  }
+  .proj-meta-top {
+    align-items: flex-start;
+    gap: 26px;
+  }
+  .meta-top-item {
+    align-items: flex-start;
+  }
+  .lang-switch {
+    order: 2;
+  }
 }

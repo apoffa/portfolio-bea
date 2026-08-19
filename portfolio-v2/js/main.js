@@ -1,10 +1,51 @@
 /* Portfolio · Beatrice Perrone
-   Interazioni leggere: nav, reveal al scroll, anno corrente */
+   Interazioni: lingua IT/EN, nav, reveal, anno, touch flip */
 
 (function () {
   "use strict";
 
-  // --- nav: stato al scroll ---
+  var I18N = window.I18N || {};
+
+  // ---- lingua ----
+  function storedLang() {
+    try {
+      return localStorage.getItem("lang") === "en" ? "en" : "it";
+    } catch (e) {
+      return "it";
+    }
+  }
+
+  function applyLang(lang) {
+    document.documentElement.lang = lang === "en" ? "en" : "it";
+
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n");
+      var entry = I18N[key];
+      if (entry && entry[lang] != null) el.textContent = entry[lang];
+    });
+
+    document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n-html");
+      var entry = I18N[key];
+      if (entry && entry[lang] != null) el.innerHTML = entry[lang];
+    });
+
+    document.querySelectorAll("[data-lang-btn]").forEach(function (btn) {
+      btn.classList.toggle("active", btn.getAttribute("data-lang-btn") === lang);
+    });
+
+    try {
+      localStorage.setItem("lang", lang);
+    } catch (e) {}
+  }
+
+  document.querySelectorAll("[data-lang-btn]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      applyLang(btn.getAttribute("data-lang-btn"));
+    });
+  });
+
+  // ---- nav: stato al scroll ----
   var nav = document.querySelector(".nav");
   var toggle = document.querySelector(".nav-toggle");
   var links = document.querySelector(".nav-links");
@@ -32,7 +73,7 @@
     });
   }
 
-  // --- reveal on scroll ---
+  // ---- reveal on scroll ----
   var revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && revealEls.length) {
     var io = new IntersectionObserver(
@@ -51,17 +92,17 @@
     revealEls.forEach(function (el) { el.classList.add("in"); });
   }
 
-  // --- anno corrente nel footer ---
+  // ---- anno corrente ----
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();
   });
 
-  // --- riduzione del movimento: mostra subito tutto ---
+  // ---- riduzione movimento ----
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     revealEls.forEach(function (el) { el.classList.add("in"); });
   }
 
-  // --- touch: anteprima flip appoggiando il dito (senza cliccare) ---
+  // ---- touch: anteprima flip appoggiando il dito ----
   document.querySelectorAll(".tile").forEach(function (tile) {
     var startX = 0;
     var startY = 0;
@@ -88,4 +129,7 @@
     tile.addEventListener("pointercancel", off);
     tile.addEventListener("pointerleave", off);
   });
+
+  // applica la lingua salvata (default italiano)
+  applyLang(storedLang());
 })();
