@@ -431,32 +431,49 @@ button {
   overflow: hidden;
   border-top: 1px solid var(--line-soft);
   border-bottom: 1px solid var(--line-soft);
-  padding: 18px 0;
-  background: rgba(255, 255, 255, 0.015);
+  padding: 20px 0;
+  background: linear-gradient(90deg, rgba(36, 88, 212, 0.06), rgba(122, 92, 255, 0.05), rgba(255, 110, 82, 0.05));
 }
 
 .marquee-track {
   display: flex;
-  align-items: center;
-  gap: 34px;
   width: max-content;
   animation: marquee 26s linear infinite;
 }
 
-.marquee-track span {
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-group {
+  display: flex;
+  align-items: center;
+  gap: clamp(22px, 3.5vw, 46px);
+  padding-right: clamp(22px, 3.5vw, 46px);
+}
+
+.marquee-group span {
   font-family: "Space Grotesk", "Inter", sans-serif;
-  font-weight: 600;
-  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4.2vw, 3.2rem);
   letter-spacing: -0.02em;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.92);
   white-space: nowrap;
 }
 
-.marquee-track i {
+.marquee-group span:nth-child(4n + 1) {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.marquee-group i {
   font-style: normal;
   color: var(--coral);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  line-height: 1;
 }
 
 @keyframes marquee {

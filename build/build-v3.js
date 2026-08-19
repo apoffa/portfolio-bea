@@ -49,6 +49,13 @@ function buildI18N() {
       en: "The operative synthesis of the research: models and steps ready to apply for cultural operators and management.",
     },
     dl_btn: { it: "Scarica i 7 step (PDF)", en: "Download the 7 steps (PDF)" },
+    mq_1: { it: "Eventi", en: "Events" },
+    mq_2: { it: "Comunicazione", en: "Communication" },
+    mq_3: { it: "Marketing", en: "Marketing" },
+    mq_4: { it: "Esperienze", en: "Experiences" },
+    mq_5: { it: "Cultura", en: "Culture" },
+    mq_6: { it: "Live", en: "Live" },
+    mq_7: { it: "Digital", en: "Digital" },
   };
 
   PROJECTS.forEach((p) => {
@@ -178,8 +185,8 @@ function indexPage() {
 ${hero()}
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    ${["Eventi", "Comunicazione", "Marketing", "Esperienze", "Cultura", "Live", "Digital"].map((w) => `<span>${w}</span><i>✦</i>`).join("")}
-    ${["Eventi", "Comunicazione", "Marketing", "Esperienze", "Cultura", "Live", "Digital"].map((w) => `<span>${w}</span><i>✦</i>`).join("")}
+    <div class="marquee-group">${["mq_1", "mq_2", "mq_3", "mq_4", "mq_5", "mq_6", "mq_7"].map((k) => `<span data-i18n="${k}"></span><i>✦</i>`).join("")}</div>
+    <div class="marquee-group">${["mq_1", "mq_2", "mq_3", "mq_4", "mq_5", "mq_6", "mq_7"].map((k) => `<span data-i18n="${k}"></span><i>✦</i>`).join("")}</div>
   </div>
 </div>
 <main>
