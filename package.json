@@ -7,7 +7,7 @@
     "build": "node build/build.js",
     "build:v2": "node build/build-v2.js",
     "build:v3": "node build/build-v3.js",
-    "build:pages": "node build/build-v2.js && rm -rf docs && cp -R portfolio-v2 docs",
+    "build:pages": "node build/build-v2.js && node build/build-v3.js && rm -rf docs && cp -R portfolio-v2 docs && cp -R portfolio-v3 docs/v3 && rm -f docs/v3/robots.txt",
     "serve": "npx http-server portfolio -p 4173 -c-1",
     "serve:v2": "npx http-server portfolio-v2 -p 4174 -c-1",
     "serve:v3": "npx http-server portfolio-v3 -p 4175 -c-1",

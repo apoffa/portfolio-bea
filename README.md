@@ -137,3 +137,12 @@ npm run qa:v3        # audit automatico della v3
 ```
 
 Gli screenshot della v3 sono in `screenshots-v3/`.
+
+---
+
+## Pubblicazione di entrambe le versioni
+
+Con `npm run build:pages` vengono pubblicate **tutte e due**:
+
+- V2 → `https://apoffa.github.io/portfolio-bea/`
+- V3 → `https://apoffa.github.io/portfolio-bea/v3/`
