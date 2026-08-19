@@ -407,6 +407,10 @@ button {
   line-height: 0.94;
 }
 
+.hero-title .text-gradient {
+  padding: 0.12em 0;
+}
+
 .hero .lead {
   max-width: 620px;
 }
@@ -870,7 +874,8 @@ button {
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 0.98;
-  margin: 18px 0 0;
+  margin: 10px 0 0;
+  padding: 0.15em 0;
   text-wrap: balance;
   background: linear-gradient(105deg, #fff 10%, var(--blue) 45%, var(--violet) 75%);
   -webkit-background-clip: text;
