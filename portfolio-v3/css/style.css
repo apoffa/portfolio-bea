@@ -512,43 +512,10 @@ button {
   transition: transform 0.6s var(--spring), box-shadow 0.6s var(--ease);
 }
 
-/* bordo gradiente (hover) */
-.tile::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: calc(var(--radius) + 1px);
-  padding: 1.5px;
-  background: conic-gradient(from var(--angle, 0deg), #4d7cff, #7a5cff, #ff6e52, #4d7cff);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.4s var(--ease);
-  animation: spin-border 5s linear infinite;
-  z-index: 3;
-  pointer-events: none;
-}
-
-@property --angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-
-@keyframes spin-border {
-  to { --angle: 360deg; }
-}
-
 .tile:hover {
   transform: translateY(-8px) scale(1.008);
   box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.9);
   z-index: 5;
-}
-
-.tile:hover::before {
-  opacity: 1;
 }
 
 .tile-inner {
