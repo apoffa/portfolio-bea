@@ -1194,7 +1194,7 @@ button {
    (riferimento: portfolio Wix di esempio · full-bleed, ratio 4:3)
    ============================================================ */
 .works {
-  padding: clamp(72px, 9vw, 130px) 0 clamp(80px, 10vw, 140px);
+  padding: clamp(48px, 6vw, 80px) 0 clamp(80px, 10vw, 140px);
 }
 
 .works .section-head {
@@ -1278,7 +1278,7 @@ button {
    ============================================================ */
 .hero {
   min-height: auto;
-  padding: clamp(150px, 20vh, 210px) 0 clamp(70px, 10vh, 110px);
+  padding: clamp(120px, 16vh, 190px) 0 clamp(8px, 2vh, 20px);
 }
 
 .hero-inner {
