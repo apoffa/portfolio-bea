@@ -1,5 +1,4 @@
 node_modules/
-screenshots/
-screenshots-v2/
+screenshots*/
 .DS_Store
 *.log

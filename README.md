@@ -115,3 +115,25 @@ Per aggiornare il sito dopo modifiche:
 npm run build:pages     # rigenera portfolio-v2 e sincronizza docs/
 git add -A && git commit -m "Update portfolio" && git push
 ```
+
+---
+
+## Versione V3 sperimentale (`portfolio-v3/`)
+
+Una terza copia, **sperimentale e graficamente più spinta**, basata sugli stessi contenuti della v2:
+
+- tema **dark** + gradienti vividi (stile Aceternity, ricreato in vanilla JS/CSS per restare statico e senza build);
+- **aurora animata** e **spotlight che segue il cursore** nell'hero;
+- **text reveal** del titolo (blur → nitido);
+- **marquee** tipografica dei temi (Eventi · Comunicazione · Marketing…);
+- card progetto con **bordo gradiente animato**, **lift + shine** in hover e flip con abstract;
+- tipografia **Space Grotesk** (display) + Inter (testo);
+- stesse funzioni della v2: ordine progetti, foto reali, palette, IT/EN con un click.
+
+```bash
+npm run build:v3     # rigenera portfolio-v3/
+npm run serve:v3     # anteprima su http://localhost:4175
+npm run qa:v3        # audit automatico della v3
+```
+
+Gli screenshot della v3 sono in `screenshots-v3/`.
